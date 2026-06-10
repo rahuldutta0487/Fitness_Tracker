@@ -1,0 +1,26 @@
+namespace: fitness-prod
+
+app:
+  name: fitness-tracker
+
+replicaCount: 2
+
+image:
+  repository: rahuldutta0487/fitness-tracker
+  tag: v1.0.0
+  pullPolicy: IfNotPresent
+
+containerPort: 5000
+
+mongodb:
+  uri: mongodb://mongodb-service:27017/fitness-tracker
+
+service:
+  name: fitness-tracker-service
+  type: ClusterIP
+  port: 80
+
+gateway:
+  name: fitness-gateway
+  routeName: fitness-route
+  className: istio

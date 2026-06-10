@@ -1,0 +1,8 @@
+namespace: fitness-staging
+replicaCount: 2
+image:
+  repository: rahuldutta0487/fitness-tracker
+  tag: v1.0.0
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
