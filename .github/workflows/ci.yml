@@ -51,10 +51,10 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t harsh0soni/fitness-tracker:${{ github.run_number }} .
-          docker tag harsh0soni/fitness-tracker:${{ github.run_number }} harsh0soni/fitness-tracker:latest
+          docker build -t rahuldutta0487/fitness-tracker:${{ github.run_number }} .
+          docker tag rahuldutta0487/fitness-tracker:${{ github.run_number }} harsh0soni/fitness-tracker:latest
 
       - name: Push Docker Image
         run: |
-          docker push harsh0soni/fitness-tracker:${{ github.run_number }}
-          docker push harsh0soni/fitness-tracker:latest
+          docker push rahuldutta0487/fitness-tracker:${{ github.run_number }}
+          docker push rahuldutta0487/fitness-tracker:latest
