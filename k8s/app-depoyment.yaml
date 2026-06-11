@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-tracker-app
+  namespace: fitness-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fitness-tracker-app
+  template:
+    metadata:
+      labels:
+        app: fitness-tracker-app
+    spec:
+      containers:
+        - name: fitness-tracker-app
+          image: rahuldutta0487/fitness-tracker:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: fitness-config
+            - secretRef:
+                name: fitness-secret
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
